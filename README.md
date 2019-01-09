@@ -1,4 +1,4 @@
-<img alt="Logo" src="i.imgur.com/jFKnHDt.png">
+<img alt="Logo" src="https://i.imgur.com/jFKnHDt.png">
 ---
 ## What is MineExcel?
 I run a private Minecraft server, and as a good server owner, I bow down to the wishes of my players. One of my good friends decided that he wanted to make a huge farm by clearing out hundreds of thousands of blocks in one area, but didn't have the means to do so, so he wrote up an Excel spreadsheet of around 250 commands for me to individually paste into the server console.
