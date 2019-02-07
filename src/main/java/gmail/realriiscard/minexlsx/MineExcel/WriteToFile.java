@@ -12,7 +12,9 @@ public class WriteToFile {
 	
 	public void addCommand(String string) {
 		
-		commands.add(string);
+		String comline = string.replace("/", "");
+		
+		commands.add(comline);
 		
 	}
 	
