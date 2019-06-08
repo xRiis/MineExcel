@@ -13,14 +13,14 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class ExcelRead {
 	
-	private static String filepath = "";
+	private static String readpath = "";
 	private static int column = 0;
 	
 	static WriteToFile item = new WriteToFile();
 	
-	public void setFilePath(String string) {
+	public void setReadPath(String string) {
 		
-		ExcelRead.filepath = string;
+		ExcelRead.readpath = string;
 		
 	}
 	
@@ -34,7 +34,7 @@ public class ExcelRead {
 		
 		System.out.println("Started reading from spreadsheet!");
 		
-		String excelFilePath = filepath;
+		String excelFilePath = readpath;
 		FileInputStream inputStream = new FileInputStream(new File(excelFilePath));
 		
 		Workbook workbook = new XSSFWorkbook(inputStream);

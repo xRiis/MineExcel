@@ -8,7 +8,15 @@ import java.util.ArrayList;
 
 public class WriteToFile {
 	
+	public static String writepath = "";
+	
 	static ArrayList<String> commands = new ArrayList<String>();
+	
+	public void setWritePath(String string) {
+		
+		WriteToFile.writepath = string;
+		
+	}
 	
 	public void addCommand(String string) {
 		
@@ -24,7 +32,7 @@ public class WriteToFile {
 			
 			System.out.println("Beginning file production!");
 			
-			File file = new File("function.mcfunction");
+			File file = new File(writepath);
 			FileWriter fileWriter = new FileWriter(file);
 			PrintWriter printWriter = new PrintWriter(fileWriter);
 			
