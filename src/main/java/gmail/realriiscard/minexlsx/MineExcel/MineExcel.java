@@ -1,7 +1,6 @@
 package gmail.realriiscard.minexlsx.MineExcel;
 
-import java.awt.Color;
-import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -15,21 +14,17 @@ public class MineExcel {
 	
 	public static void main(String[] args) throws IOException {
 		
-		JFrame frame = new JFrame();
-		
-		JPanel panel = new JPanel();
-		panel.setLayout(null);
-		panel.setBackground(Color.WHITE);
-		frame.getContentPane().add(panel);
-		
-		JLabel title = new JLabel("MineExcel");
-		title.setVerticalTextPosition(JLabel.BOTTOM);
-		title.setHorizontalAlignment(JLabel.CENTER);
-		panel.add(title);
-		
-		JButton commence = new JButton("Begin Process");
-		panel.add(commence);
-		commence.addActionListener(new ActionListener() {
+        JFrame frame = new JFrame("MineExcel");
+        
+        JPanel panel = new JPanel();
+        panel.setLayout(new FlowLayout());
+ 
+        JLabel label = new JLabel("MineExcel");
+ 
+        JButton button = new JButton();
+        button.setText("Begin Process");
+        
+		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				WriteToFile file = new WriteToFile();
@@ -52,14 +47,15 @@ public class MineExcel {
 			}
 
 		});
-		
-		frame.setTitle("MineExcel");
-		frame.setSize(new Dimension(1080, 720));
-		frame.setResizable(false);
-		frame.setLocationRelativeTo(null);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		frame.setVisible(true);
+ 
+        panel.add(label);
+        panel.add(button);
+ 
+        frame.add(panel);
+        frame.setSize(1080, 720);
+        frame.setLocationRelativeTo(null);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);	
 		
 	}
 	
