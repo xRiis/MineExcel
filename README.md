@@ -10,10 +10,12 @@ MineExcel is an in-progress application that allows a user to read from a given 
 
 ## How to use it
 
-Run MineExcel and select a file. **MineExcel will only properly work with .xlsx or .xlsm files. Older file versions are not supported.** When the process is begun, MineExcel will read from the first column of the spreadsheet and spit all data into a .mcfunction file, located at C:\\function.mcfunction. After that .mcfunction file is imported into the [WORLDNAME]/datapacks/[DATAPACKNAME]/data/[NAMESPACE]/functions folder of a Minecraft world, it can be called using "/function [NAMESPACE]:[FILENAME]."
+Run MineExcel and select a file. **MineExcel will only properly work with .xlsx or .xlsm files. Older file versions are not supported.** Then select your output -- type a name for your new file and hit "Open." When the process is begun, MineExcel will read from the first column of the spreadsheet and spit all data it sees there into a .mcfunction file. 
+
+After that .mcfunction file is imported into the [WORLDNAME]/datapacks/[DATAPACKNAME]/data/[NAMESPACE]/functions folder of a Minecraft world, it can be called using "/function [NAMESPACE]:[FILENAME]."
 
 ## What's coming next
 
-- [ ] Custom file output path
+- [x] Custom file output path
 - [ ] Custom column selection
 - [ ] GUI beautification

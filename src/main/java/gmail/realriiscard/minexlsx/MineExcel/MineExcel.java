@@ -16,6 +16,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 public class MineExcel {
 	
 	protected static String readpath = null;
+	protected static String writepath = null;
 
 	public static void main(String[] args) throws IOException {
 		
@@ -29,14 +30,15 @@ public class MineExcel {
         
         GridBagConstraints constraints = new GridBagConstraints();
  
-        JButton select = new JButton("Select File");
+        JButton selectfile = new JButton("Select Spreadsheet");
+        JButton selectpath = new JButton("Select Output");
         JButton begin = new JButton("Begin Process");
         
-		select.addActionListener(new ActionListener() {
+		selectfile.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			  
 		        JFileChooser chooser = new JFileChooser();
-		        FileNameExtensionFilter filter = new FileNameExtensionFilter("Microsoft Excel Spreadsheets", "xlsx", "xlsm");
+		        FileNameExtensionFilter filter = new FileNameExtensionFilter("Microsoft Excel Spreadsheet (.xlsx, .xlsm)", "xlsx", "xlsm");
 		        chooser.setFileFilter(filter);
 		        int returnVal = chooser.showOpenDialog(null);
 		        System.out.println("JFileChooser opened");
@@ -52,12 +54,32 @@ public class MineExcel {
 			
 			
 		});
+		
+		selectpath.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				JFileChooser chooser = new JFileChooser();
+				FileNameExtensionFilter filter = new FileNameExtensionFilter("Minecraft Function File (.mcfunction)", "mcfunction");
+				chooser.setFileFilter(filter);
+				int returnVal = chooser.showOpenDialog(null);
+				System.out.println("JFileChooser opened");
+				
+				if(returnVal == JFileChooser.APPROVE_OPTION) {
+					
+					writepath = chooser.getSelectedFile().getAbsolutePath();
+					System.out.println("Determined write path: " + writepath);
+					
+				}
+				
+			}
+			
+		});
         
 		begin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				WriteToFile file = new WriteToFile();
-				file.setWritePath("C:\\function.mcfunction");
+				file.setWritePath(writepath);
 				
 				ExcelRead sheet = new ExcelRead();
 				sheet.setReadPath(readpath);
@@ -85,11 +107,16 @@ public class MineExcel {
         constraints.fill = GridBagConstraints.HORIZONTAL;
         constraints.gridx = 0;
         constraints.gridy = 1;
-        panel.add(select, constraints);
+        panel.add(selectfile, constraints);
         
         constraints.fill = GridBagConstraints.HORIZONTAL;
         constraints.gridx = 0;
         constraints.gridy = 2;
+        panel.add(selectpath, constraints);
+        
+        constraints.fill = GridBagConstraints.HORIZONTAL;
+        constraints.gridx = 0;
+        constraints.gridy = 3;
         panel.add(begin, constraints);
  
         frame.add(panel);
